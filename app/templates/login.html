@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Restaurant Pre-Orders</title>
+  <title>PAL</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
 
 <div class="container">
   <div class="card">
-    <h1>Pre-Orders</h1>
-    <p class="subtitle">Welcome please log in to continue</p>
+    <h1>PAL</h1>
+    <p class="subtitle">Connect tutors and students for effective language learning</p>
+    <p>Welcome please log in to continue</p>
 
     <!-- Flash messages -->
     {% with messages = get_flashed_messages() %}
@@ -27,13 +28,13 @@
       {{ form.hidden_tag() }}
 
       <label>Email</label>
-        {{ form.email(class="form-control", placeholder="Enter your restaurant email") }}
+        {{ form.email(class="form-control", placeholder="Email") }}
 
       <label>Password</label>
         {{ form.password(class="form-control", placeholder="Password") }}
 
         {{ form.submit(class="button") }}
-        <p>email="admin@resto.com", password="1234"</p>
+        <p>email="maria@tutor.com", password="tutor123"</p>
     </form>
 
     <div class="divider"></div>
