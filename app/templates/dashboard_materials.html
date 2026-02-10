@@ -25,10 +25,13 @@
         <a href="{{ url_for('static', filename=material.file_path) }}" target="_blank" class="material-link">
           View
         </a>
+        <p class="material-description">{{ material.description }}</p>
       {% else %}
-        <p class="no-file">No file uploaded</p>
+        <p class="material-description">
+          {{ material.description | linkify }}
+        </p>
       {% endif %}
-      <p class="material-description">{{ material.description }}</p>
+
     </div>
   {% endfor %}
 </div>

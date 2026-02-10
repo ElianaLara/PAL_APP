@@ -72,7 +72,7 @@ def add_material():
 
         # Get all materials for this tutor
     materials = Material.query.filter_by(tutor_id=session['tutor_id']).all()
-    return render_template("dashboard_material.html", form=form, materials=materials)
+    return render_template("dashboard_materials.html", form=form, materials=materials)
 
 @main.route("/delete_material/<int:material_id>", methods=['GET', 'POST'])
 def delete_material(material_id):
