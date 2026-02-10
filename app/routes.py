@@ -96,6 +96,14 @@ def add_student():
         active_tab='students',
     )
 
+@main.route("/delete_student/<int:student_id>")
+def delete_student(student_id):
+    student = Student.query.get_or_404(student_id)
+    db.session.delete(student)
+    db.session.commit()
+    flash('Student deleted successfully!', 'success')
+    return redirect(url_for('main.students'))
+
 @main.route('/history')
 def history():
     if 'tutor_id' not in session:
