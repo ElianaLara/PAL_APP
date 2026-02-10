@@ -89,6 +89,8 @@ button:hover {
 }
 
 .logo {
-  width: 10px;          /* adjust size */
+  width: 100px;          /* adjust size */
   height: auto;
+  display: block;
+  margin: 0 auto 20px;
 }

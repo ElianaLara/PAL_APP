@@ -32,7 +32,7 @@
     <div class="tab active">Materials</div>
     <div class="tab">Sessions</div>
     <div class="tab">Students</div>
-    <div class="tab">History</div>
+    <div class="tab">History & stats</div>
   </div>
 
   <!-- ===== MAIN ===== -->
@@ -47,7 +47,11 @@
     </div>
 
     <div class="empty-card">
-      <img src="file-icon.svg" alt="No materials">
+      <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="PAL Logo"
+            class="logo"
+        >
       <h3>No materials yet</h3>
       <p>Add your first teaching material to get started</p>
     </div>

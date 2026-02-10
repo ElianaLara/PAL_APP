@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAL Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="PAL Logo"
+            class="logo"
+        >
+      </div>
+
+      <div class="title">
+        <h1>PAL Tutor</h1>
+        <p>{{ tutor_name }}</p>
+      </div>
+    </div>
+
+   <a href="{{ url_for('main.logout') }}" class="logout-btn">Logout</a>
+  </header>
+
+  <!-- ===== NAVIGATION ===== -->
+  <div class="tabs">
+    <a href="{{ url_for('main.materials') }}"
+       class="tab {% if active_tab == 'materials' %}active{% endif %}">
+       Materials
+    </a>
+    <a href="{{ url_for('main.sessions') }}"
+       class="tab {% if active_tab == 'sessions' %}active{% endif %}">Sessions</a>
+    <a href="{{ url_for('main.students') }}"
+       class="tab {% if active_tab == 'students' %}active{% endif %}">Students</a>
+    <a href="{{ url_for('main.history') }}"
+       class="tab {% if active_tab == 'history' %}active{% endif %}">History & stats</a>
+  </div>
+

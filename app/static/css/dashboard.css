@@ -132,7 +132,14 @@ main {
 }
 
 .logo {
-  width: 100px;          /* adjust size */
-  height: auto;
-  display: block;
+    width: 100px;          /* adjust size */
+    height: auto;
+    display: block;
+}
+
+.logoe {
+    width: 100px;          /* adjust size */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
 }
