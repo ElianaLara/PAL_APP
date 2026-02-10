@@ -1,1 +1,62 @@
 {% extends "dashboard_base.html" %}
+{% block content %}
+
+<div class="section-header">
+  <div>
+    <h2>Material</h2>
+    <p>Manage your materials</p>
+  </div>
+  <button class="add-btn" id="openModal">Add </button>
+</div>
+
+<div class="materials-grid">
+  {% for material in materials %}
+    <div class="material-card">
+      <h3 class="material-title">{{ material.title }}</h3>
+
+      <a href="{{ url_for('main.delete_material', material_id=material.id) }}"
+           class="delete-icon"
+           onclick="return confirm('Delete this material?');">
+          Delete
+        </a>
+
+      <p class="material-type">{{ material.material_type|capitalize }}</p>
+      {% if material.file_path %}
+        <a href="{{ url_for('static', filename=material.file_path) }}" target="_blank" class="material-link">
+          View
+        </a>
+      {% else %}
+        <p class="no-file">No file uploaded</p>
+      {% endif %}
+      <p class="material-description">{{ material.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="modal-overlay" id="studentModal">
+  <div class="modal">
+    <h3>Add material</h3>
+
+    <form method="POST" action="{{ url_for('main.add_material') }}" enctype="multipart/form-data" novalidate>
+    {{ form.hidden_tag() }}
+
+    {% for field in form %}
+        {% if field.type not in ('CSRFTokenField', 'SubmitField') %}
+            {{ field.label }} {{ field }}
+        {% endif %}
+    {% endfor %}
+
+    {{ form.add(class="button") }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/add.js') }}"></script>
+{% endblock %}
+
+
+

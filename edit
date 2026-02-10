@@ -1,6 +1,4 @@
-<a href="{{ url_for('main.student_detail', student_id=student.id) }}"
-     class="student-card">
-
-
-
-
+<div class="material-actions">
+        <a href="{{ url_for('main.edit_material', id=material.id) }}" class="edit-btn">Edit</a>
+        <a href="{{ url_for('main.delete_material', id=material.id) }}" class="delete-btn">Delete</a>
+      </div>
