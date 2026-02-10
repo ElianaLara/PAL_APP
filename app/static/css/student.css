@@ -128,3 +128,22 @@
 button:hover {
   background-color: #3d3795;
 }
+
+.notes {
+  background-color: #f9f9f9;
+  border-left: 4px solid #166cc3;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #333;
+  border-radius: 5px;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.notes .label {
+  font-weight: bold;
+  color: #166cc3;
+  margin-right: 5px;
+}

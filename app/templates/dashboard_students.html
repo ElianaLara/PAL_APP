@@ -26,9 +26,6 @@
         </a>
 
       </div>
-
-
-
       <p class="email">
         {{ student.email }}
       </p>
@@ -38,7 +35,13 @@
       </div>
 
       <p class="notes">
+        <span class="label">Notes:</span>
         {{ student.notes or "No notes" }}
+      </p>
+
+      <p class="notes">
+        <span class="label">Information:</span>
+        {{ student.information or "No information" }}
       </p>
 
 
