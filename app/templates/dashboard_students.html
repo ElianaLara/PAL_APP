@@ -7,8 +7,7 @@
     <h2>Students</h2>
     <p>Manage your student roster</p>
   </div>
-
-  </a>
+  <button class="add-btn" id="openModal">Add student</button>
 </div>
 
 <!-- STUDENTS LIST -->
@@ -42,4 +41,18 @@
 
 </div>
 
+<div class="modal-overlay" id="studentModal">
+  <div class="modal">
+    <h3>Add Student</h3>
+
+
+  </div>
+</div>
+
 {% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/add.js') }}"></script>
+{% endblock %}
+
+

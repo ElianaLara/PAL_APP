@@ -63,6 +63,9 @@ def students():
         active_tab='students'
     )
 
+@main.route('/add_student', methods=['GET', 'POST'])
+def add_student():
+    return render_template('dashboard_base.html')
 
 @main.route('/history')
 def history():
