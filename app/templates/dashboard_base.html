@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>PAL Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
 </head>
 <body>
 
@@ -41,3 +42,5 @@
        class="tab {% if active_tab == 'history' %}active{% endif %}">History & stats</a>
   </div>
 
+{% block content %}
+{% endblock %}

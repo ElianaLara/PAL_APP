@@ -1,0 +1,58 @@
+.section-header {
+    display: flex;
+    align-items: center;
+}
+
+.section-header > div {
+    margin-left: 2rem;
+}
+
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-left: 2rem;
+}
+
+.student-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+     border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease;
+}
+
+.student-card:hover {
+    box-shadow: 0 0 0 2px #e5e7eb;
+}
+
+.student-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email {
+    color: #6b7280;
+    margin: 8px 0;
+}
+
+.badges {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.badge {
+     background: rgba(134, 115, 255, 0.56);
+     padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.delete-icon {
+    color: red;
+    text-decoration: none;
+}

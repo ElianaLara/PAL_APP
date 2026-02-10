@@ -1,61 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>PAL Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-</head>
-<body>
+<a href="{{ url_for('main.student_detail', student_id=student.id) }}"
+     class="student-card">
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="header-left">
-      <div class="logo">
-        <img
-            src="{{ url_for('static', filename='images/logo.png') }}"
-            alt="PAL Logo"
-            class="logo"
-        >
-      </div>
+ <a href="{{ url_for('main.delete_student', student_id=student.id) }}"
+         class="delete-icon"
+         onclick="return confirm('Delete this student?');">
+          Delete
+      </a>
 
-      <div class="title">
-        <h1>PAL Spanish Tutor</h1>
-        <p>Welcome, Maria Garcia</p>
-      </div>
-    </div>
+<a href="{{ url_for('main.add_student') }}" class="add-btn">
+    + Add Student
+  </a>
 
-    <button class="logout-btn">Logout</button>
-  </header>
-
-  <!-- ===== NAVIGATION ===== -->
-  <div class="tabs">
-    <div class="tab active">Materials</div>
-    <div class="tab">Sessions</div>
-    <div class="tab">Students</div>
-    <div class="tab">History & stats</div>
-  </div>
-
-  <!-- ===== MAIN ===== -->
-  <main>
-    <div class="section-header">
-      <div>
-        <h2>Materials Library</h2>
-        <p>Manage your teaching materials and resources</p>
-      </div>
-
-      <button class="add-btn">＋ Add Material</button>
-    </div>
-
-    <div class="empty-card">
-      <img
-            src="{{ url_for('static', filename='images/logo.png') }}"
-            alt="PAL Logo"
-            class="logo"
-        >
-      <h3>No materials yet</h3>
-      <p>Add your first teaching material to get started</p>
-    </div>
-  </main>
-
-</body>
-</html>

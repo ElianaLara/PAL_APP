@@ -22,14 +22,18 @@ with app.app_context():
         full_name="James Wilson",
         level="A2",
         notes="Needs help with verb conjugations",
-        information = "Second year Biology"
+        information = "Second year Biology",
+        email = "hola@hola.com",
+        tutor_id = tutor.id
     )
 
     student2 = Student(
         full_name="Sofia Martinez",
         level="A-Level",
         notes="Confident speaker, needs grammar practice",
-        information="Second year Chemestry"
+        information="Second year Chemestry",
+        email="hola2@hola.com",
+        tutor_id=tutor.id
     )
 
     db.session.add_all([student1, student2])

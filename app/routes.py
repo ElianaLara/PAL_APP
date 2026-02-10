@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, session, Blueprint, flash, request
-from .models import Tutor
+from .models import Tutor, Student
 from app.forms import LoginForm
 
 main = Blueprint("main", __name__)
@@ -53,7 +53,15 @@ def students():
     if 'tutor_id' not in session:
         return redirect(url_for('main.login'))
 
-    return render_template('dashboard_students.html', active_tab='students')
+    students = Student.query.filter_by(
+        tutor_id=session['tutor_id']
+    ).all()
+
+    return render_template(
+        'dashboard_students.html',
+        students=students,
+        active_tab='students'
+    )
 
 
 @main.route('/history')

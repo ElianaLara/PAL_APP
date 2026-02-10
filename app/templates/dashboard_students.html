@@ -1,1 +1,45 @@
 {% extends "dashboard_base.html" %}
+
+{% block content %}
+
+<div class="section-header">
+  <div>
+    <h2>Students</h2>
+    <p>Manage your student roster</p>
+  </div>
+
+  </a>
+</div>
+
+<!-- STUDENTS LIST -->
+<div class="students-grid">
+
+  {% for student in students %}
+    <div class="student-card">
+
+      <div class="student-header">
+        <h3>{{ student.full_name }}</h3>
+      </div>
+
+      <p class="email">
+        {{ student.email }}
+      </p>
+
+      <div class="badges">
+        <span class="badge">{{ student.level }}</span>
+      </div>
+
+      <hr>
+
+      <p class="notes">
+        {{ student.notes or "No notes" }}
+      </p>
+
+    </div>
+  {% else %}
+    <p>No students yet.</p>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
