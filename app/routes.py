@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, session, Blueprint, flash, request
 from .models import Tutor, Student
-from app.forms import LoginForm
+from app.forms import LoginForm, StudentForm
+from . import db
 
 main = Blueprint("main", __name__)
 
@@ -57,15 +58,43 @@ def students():
         tutor_id=session['tutor_id']
     ).all()
 
+    form = StudentForm()
     return render_template(
         'dashboard_students.html',
         students=students,
-        active_tab='students'
+        active_tab='students',
+        form = form
     )
 
 @main.route('/add_student', methods=['GET', 'POST'])
 def add_student():
-    return render_template('dashboard_base.html')
+
+    form = StudentForm()
+
+    if form.validate_on_submit():
+        new_student = Student(
+            full_name=form.full_name.data,
+            email=form.email.data,
+            level=form.level.data,
+            notes=form.notes.data,
+            information=form.information.data,
+            tutor_id=session['tutor_id']
+        )
+
+        db.session.add(new_student)
+        db.session.commit()
+
+        flash('Student added successfully!', 'success')
+        return redirect(url_for('main.students'))
+
+    students = Student.query.filter_by(
+        tutor_id=session['tutor_id']
+    ).all()
+    return render_template(
+        'dashboard_students.html',
+        students=students,
+        active_tab='students',
+    )
 
 @main.route('/history')
 def history():

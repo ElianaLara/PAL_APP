@@ -103,17 +103,9 @@
   border: 1px solid #e5e7eb;
 }
 
-.modal textarea {
-  resize: vertical;
-  min-height: 80px;
-}
 
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
-}
+
+
 
 .cancel-btn {
   background: #e5e7eb;
@@ -121,4 +113,19 @@
   padding: 10px 16px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  background-color: #726aea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3d3795;
 }

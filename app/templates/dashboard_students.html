@@ -45,6 +45,18 @@
   <div class="modal">
     <h3>Add Student</h3>
 
+    <form method="POST" action="{{ url_for('main.add_student') }}", novalidate>
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.type not in ['CSRFTokenField', 'SubmitField'] %}
+        <div class="form-group">
+            {{ field.label }}
+            {{ field(class="form-control") }}
+        </div>
+    {% endfor %}
+
+    {{ form.add(class="button") }}
+    </form>
 
   </div>
 </div>

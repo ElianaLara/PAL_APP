@@ -7,7 +7,4 @@
           Delete
       </a>
 
-<a href="{{ url_for('main.add_student') }}" class="add-btn">
-    + Add Student
-  </a>
 
