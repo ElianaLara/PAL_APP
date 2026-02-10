@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, session, Blueprint, flash, request
-
+from .models import Tutor
 from app.forms import LoginForm
 
 main = Blueprint("main", __name__)
@@ -17,12 +17,15 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        # Example check (replace with DB logic)
-        if form.email.data == "test@test.com" and form.password.data == "1234":
-            session['user'] = form.email.data
+        tutor = Tutor.query.filter_by(email=form.email.data).first()
+
+        if tutor and tutor.password_hash == form.password.data:
+            session['tutor_id'] = tutor.id
+            session['tutor_name'] = tutor.full_name
+
             flash("Logged in successfully!", "success")
             return redirect(url_for('main.dashboard'))
 
-        flash("Invalid credentials", "danger")
+        flash("Invalid email or password", "danger")
 
     return render_template('login.html', form=form)

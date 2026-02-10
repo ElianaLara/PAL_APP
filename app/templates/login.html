@@ -9,6 +9,11 @@
 
 <div class="container">
   <div class="card">
+    <img
+    src="{{ url_for('static', filename='images/logo.png') }}"
+    alt="PAL Logo"
+    class="logo"
+    >
     <h1>PAL</h1>
     <p class="subtitle">Connect tutors and students for effective language learning</p>
     <p>Welcome please log in to continue</p>
@@ -34,7 +39,7 @@
         {{ form.password(class="form-control", placeholder="Password") }}
 
         {{ form.submit(class="button") }}
-        <p>email="maria@tutor.com", password="tutor123"</p>
+        <p>email="pal.tutor@ncl.ac.uk", password="password123"</p>
     </form>
 
     <div class="divider"></div>
